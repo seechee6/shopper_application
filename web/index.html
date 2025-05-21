@@ -17,8 +17,10 @@
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">  <meta name="description" content="A new Flutter project.">
+
+  <!-- Google Sign-In client ID -->
+  <meta name="google-signin-client_id" content="99002182038-4jhj6bltaim4vp1jk06lgpth4no5ltfk.apps.googleusercontent.com">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -26,13 +28,32 @@
   <meta name="apple-mobile-web-app-title" content="shop_application">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <!-- Favicon -->  <link rel="icon" type="image/png" href="favicon.png"/>
 
   <title>shop_application</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  
+  <!-- Add meta tag for CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src * 'self' 'unsafe-inline'; media-src *; connect-src * 'self'; frame-src * 'self';">
 </head>
 <body>
+  <!-- Firebase Configuration -->
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDFJTEy4-LiW2_pZg0jgfwWS0ZyyL6OsTo",
+      authDomain: "shopper-application-c5467.firebaseapp.com",
+      projectId: "shopper-application-c5467",
+      storageBucket: "shopper-application-c5467.firebasestorage.app",
+      messagingSenderId: "99002182038",
+      appId: "1:99002182038:web:865f2eb6d9c8c2d9a655b7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

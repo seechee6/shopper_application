@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_application/models/cart.dart';
 import 'package:shop_application/models/catalog.dart';
+import 'package:shop_application/services/auth_service.dart';
 
 class MyCatalog extends StatelessWidget {
   const MyCatalog({super.key});
@@ -85,6 +86,17 @@ class _MyAppBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.shopping_cart),
           onPressed: () => context.go('/catalog/cart'),
+        ),
+        IconButton(
+          icon: const Icon(Icons.logout),
+          tooltip: 'Sign Out',
+          onPressed: () async {
+            final authService = AuthService();
+            await authService.signOut();
+            if (context.mounted) {
+              context.go('/login');
+            }
+          },
         ),
       ],
     );
