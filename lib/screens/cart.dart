@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_application/models/cart.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyCart extends StatelessWidget {
   const MyCart({super.key});
@@ -53,12 +54,12 @@ class _CartList extends StatelessWidget {
     if (cart.items.isEmpty) {
       return Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.shopping_cart_outlined,
-              size: 80,
-              color: Colors.grey.shade400,
+          mainAxisAlignment: MainAxisAlignment.center,          children: [
+            SvgPicture.asset(
+              'assets/images/shopping_cart.svg',
+              width: 80,
+              height: 80,
+              colorFilter: ColorFilter.mode(Colors.grey.shade400, BlendMode.srcIn),
             ),
             const SizedBox(height: 16),
             Text(
@@ -130,10 +131,14 @@ class _CartList extends StatelessWidget {
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold,
-                ),
-              ),
+                ),              ),
               trailing: IconButton(
-                icon: const Icon(Icons.remove_circle, color: Colors.red),
+                icon: SvgPicture.asset(
+                  'assets/images/remove_circle.svg',
+                  width: 24,
+                  height: 24,
+                  colorFilter: const ColorFilter.mode(Colors.red, BlendMode.srcIn),
+                ),
                 onPressed: () {
                   cart.remove(cart.items[index]);
                   ScaffoldMessenger.of(context).showSnackBar(
